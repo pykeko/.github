@@ -28,6 +28,6 @@ Or grab the latest release directly: **[Download PyKeko.dmg](https://github.com/
 
 ## About
 
-PyKeko is a desktop packaging of [moorhen-coot/Moorhen](https://github.com/moorhen-coot/Moorhen) (a WebAssembly port of Coot's engine), customized to behave like the pre-1.0 Coot crystallographers know — same keyboard shortcuts, defaults, and workflow primitives — and shipped as a one-click MacOS app for environments where Coot v0.9x's XQuartz/GLX stack is broken (looking at you, MacOS Tahoe).
+PyKeko is a desktop packaging of [moorhen-coot/Moorhen](https://github.com/moorhen-coot/Moorhen) (a WebAssembly port of Coot's engine), customized to behave like the pre-1.0 Coot crystallographers know and love — same keyboard shortcuts, defaults, and workflow primitives — and shipped as a one-click MacOS app for environments where Coot v0.9x's XQuartz/GLX stack is broken (looking at you, MacOS Tahoe).
 
 
