@@ -1,0 +1,84 @@
+name: 🐛 Bug report
+description: Something doesn't work the way it should
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a PyKeko bug! Please fill in the fields below so we can reproduce and fix it.
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: Which part of PyKeko?
+      description: Where in the stack does the bug appear?
+      options:
+        - PyKeko.app (production desktop app)
+        - PyKekoDev.app (dev variant, vite live)
+        - Moorhen-PyKeko (browser-only / vite dev / engine)
+        - PyKekoMCP (MCP server / Claude integration)
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: pykeko-version
+    attributes:
+      label: PyKeko version
+      description: 'In the app menu (PyKeko → About PyKeko), or `PyKeko.app/Contents/Info.plist` → `CFBundleShortVersionString`. Release name like `pk-v0.1` also fine.'
+      placeholder: "0.1.0"
+    validations:
+      required: false
+
+  - type: input
+    id: macos-version
+    attributes:
+      label: macOS version
+      description: 'Apple menu → About This Mac. e.g. "macOS 26.4 (Tahoe)".'
+      placeholder: "macOS 26.4 (Tahoe)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Describe the behavior you observed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: |
+        Numbered steps so we can recreate the bug. Include any model/map files used (PDB IDs are fine; for private data, please anonymize).
+      placeholder: |
+        1. Open PyKeko.app
+        2. Load 1crn from the PDB fetch dialog
+        3. Press `g` to enable NCS ghosts
+        4. See: ghosts render but disappear after the next view change
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log output (if relevant)
+      description: |
+        Paste the tail of `/tmp/pykeko.log` (production) or `/tmp/pykeko-dev.log` (dev). The renderer console (View → Toggle Developer Tools → Console) can also be useful — Cmd-Option-I to open.
+      render: shell
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots (optional)
+      description: Drag images here to attach.
