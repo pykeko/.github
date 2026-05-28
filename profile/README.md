@@ -23,15 +23,9 @@ Under the hood it is [**Moorhen**](https://github.com/moorhen-coot/Moorhen): Coo
 
 **Why it exists:** Coot 0.9.x renders through XQuartz/GLX, which is broken on recent macOS (notably **Tahoe**). PyKeko needs no XQuartz, no CCP4 install, and no compiler — download the DMG and go.
 
-> An independent personal project by [Mark Hilgers](https://github.com/hilgersmt). Not affiliated with or endorsed by the Moorhen or Coot teams — it stands entirely on their work (see [Credits](#credits)).
+> An independent project not affiliated with or endorsed by the Moorhen or Coot teams — but built on their work (see [Credits](#credits)).
 
-## Heritage & the name
-
-PyKeko sits at the end of a lineage of bird-named crystallography software:
-
-> **[Coot](https://www2.mrc-lmb.cam.ac.uk/personal/pemsley/coot/)** (Paul Emsley, MRC-LMB) → **[Moorhen](https://github.com/moorhen-coot/Moorhen)** (the Moorhen team's WebAssembly reimagining of Coot for the browser) → **PyKeko** (this macOS desktop fork of Moorhen)
-
-Coots and moorhens are both waterbirds in the rail family (*Rallidae*). The **[pūkeko](https://en.wikipedia.org/wiki/Australasian_swamphen)** — the Australasian swamphen — is their New Zealand cousin, which is where the name (and the *"quacks like a Coot"* tagline) comes from. Each layer stands on the one before it: PyKeko is Moorhen with a native shell and Coot-era ergonomics; Moorhen is Coot's engine on the web; Coot is the original.
+**Named for the **[pūkeko](https://en.wikipedia.org/wiki/Australasian_swamphen)** bird — the Australasian swamphen — a New Zealand cousin of coots and moorhens.**
 
 ## Install (macOS, Apple Silicon)
 
