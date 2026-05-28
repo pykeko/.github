@@ -2,7 +2,7 @@
 
 > A [Moorhen](https://github.com/moorhen-coot/Moorhen) fork that quacks like a [Coot](https://www2.mrc-lmb.cam.ac.uk/personal/pemsley/coot/).
 > 
-> A MacOS Tahoe desktop model building app for crystallography & cryoEM: adds NCS ghost overlays, a PyMOL command language scripting modal, MCP control surface for Claude, ligand and NCS mate jumping, Coot v0.9.x-style keyboard shortcuts/defaults, and more.
+> A MacOS Tahoe desktop model building app for crystallography & cryoEM: adds NCS ghost overlays, a [PyMOL](https://www.pymol.org/) command language scripting modal, MCP control surface for Claude, ligand and NCS mate jumping, Coot v0.9.x-style keyboard shortcuts/defaults, and more.
 > 
 > Named after the [pūkeko](https://en.wikipedia.org/wiki/Australasian_swamphen) bird, a New Zealand cousin of moorhens and coots.
 
