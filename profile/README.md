@@ -36,14 +36,14 @@ Under the hood it is [**Moorhen**](https://github.com/moorhen-coot/Moorhen), Coo
 
 Already on an earlier version? See **[upgrading](https://github.com/pykeko/Moorhen-PyKeko/blob/main/docs/install-mac.md#updating-to-a-newer-version)** — your settings and the `pykeko` command-line tool carry over.
 
-Requires macOS 15 (Tahoe) on Apple Silicon. Nothing else to install — Electron, the WebAssembly Coot engine, and the monomer libraries are all bundled. Fully offline except for "Fetch from PDB".
+Requires macOS 15.x (Tahoe) on Apple Silicon. Nothing else to install — Electron, the WebAssembly Coot engine, and the monomer libraries are all bundled. Fully offline except for "Fetch from PDB".
 
 ## What's new in 0.2.0
 
-- **Command-line integration** — `pykeko model.pdb data.mtz ligand.cif` opens files (a restraints `.cif` attaches as a *dictionary* to the matching coordinates rather than spawning a new molecule); `pykeko 1crn` fetches by PDB id; `pykeko script.pml` runs a PyMOL-style script. A second `pykeko …` loads into the running window (PyMOL `-R` style); `--new` opens a fresh one. Install the command from **Preferences → Install command-line launcher**.
-- **Residue torsion editor** — right-click a residue → **Edit torsions**: backbone φ/ψ as a *local* move plus sidechain χ, with a **live Ramachandran plot** tracking the sliders.
+- **Command-line integration** — `pykeko model.pdb data.mtz ligand.cif` opens files (the `.cif` attaching as a *dictionary*, not spawning a new molecule); `pykeko 1crn` fetches by PDB id; `pykeko script.pml` runs a PyMOL-style script. A second launch of `pykeko` loads additional files into the running window (PyMOL `-R` style); `--new` opens a fresh one. Install the command from **Preferences → Install command-line launcher**.
+- **Residue torsion editor** — right-click a residue → **Edit torsions**: rotate φ/ψ/χ angles with a **live Ramachandran plot** tracking the sliders.
 - **`pykeko_remote.py`** — a PyMOL-`-R`-style Python client that drives a running PyKeko from your own scripts (load / refine / screenshot / run PyMOL commands / …).
-- **Coot-style defaults** — black background, hydrogens shown when present, PyMOL as the default scripting language, and a one-time first-run hint pointing at the command-line launcher.
+- **Coot-style defaults** — black background, hydrogens shown when present, PyMOL as the default scripting language, and a one-time first-run hint pointing at the command-line launcher. (Updated keyboard shortcuts shown with `'m'`.)
 
 Full notes: [pk-v0.2 release](https://github.com/pykeko/Moorhen-PyKeko/releases/latest).
 
