@@ -40,7 +40,7 @@ Requires macOS 15.x (Tahoe) on Apple Silicon. Nothing else to install — Electr
 
 ## What's new in 0.2.0
 
-- **Command-line integration** — `pykeko model.pdb data.mtz ligand.cif` opens files (the `.cif` attaching as a *dictionary*, not spawning a new molecule); `pykeko 1crn` fetches by PDB id; `pykeko script.pml` runs a PyMOL-style script. A second launch of `pykeko` loads additional files into the running window (PyMOL `-R` style); `--new` opens a fresh one. Install the command from **Preferences → Install command-line launcher**.
+- **Command-line integration** — `pykeko model.pdb data.mtz ligand.cif` opens files (the `.cif` attaching as a *dictionary*, not spawning a new molecule); `pykeko 7sj3` fetches by PDB id; `pykeko script.pml` runs a PyMOL-style script. A second launch of `pykeko` loads additional files into the running window (PyMOL `-R` style); `--new` opens a fresh one. Install the command from **Preferences → Install command-line launcher**.
 - **Residue torsion editor** — right-click a residue → **Edit torsions**: rotate φ/ψ/χ angles with a **live Ramachandran plot** tracking the sliders.
 - **`pykeko_remote.py`** — a PyMOL-`-R`-style Python client that drives a running PyKeko from your own scripts (load / refine / screenshot / run PyMOL commands / …).
 - **Coot-style defaults** — black background, hydrogens shown when present, PyMOL as the default scripting language, and a one-time first-run hint pointing at the command-line launcher. (Updated keyboard shortcuts shown with `'m'`.)
