@@ -16,9 +16,9 @@
 
 ## What is PyKeko?
 
-PyKeko is a MacOS desktop application for the interactive macromolecular visualization and model building of structures determined by X-ray crystallography and cryo-EM density. 
+PyKeko is a MacOS desktop application for the interactive macromolecular visualization and model building of structures determined by X-ray crystallography and cryo-EM.
 
-Under the hood it is [**Moorhen**](https://github.com/moorhen-coot/Moorhen), Coot's C++ engine (libcootapi, CCP4, Clipper, MMDB, GEMMI, RDKit) compiled to WebAssembly and wrapped in a TypeScript/React interface. PyKeko packages that into a self-contained, one-click `.app` / `.dmg` and tunes it to feel like the **Coot 0.9.x** — with similar keyboard shortcuts, defaults, and workflow primitives — while adding features of its own: a [PyMOL](https://www.pymol.org/) command-language scripting console, command-line integration, a residue torsion editor, Claude/MCP control, and more.
+Under the hood it is [**Moorhen**](https://github.com/moorhen-coot/Moorhen), Coot's C++ engine (libcootapi, CCP4, Clipper, MMDB, GEMMI, RDKit) compiled to WebAssembly and wrapped in a TypeScript/React interface. PyKeko packages that into a self-contained, one-click `.app` / `.dmg` and tunes it to feel like **Coot 0.9.x** - with similar keyboard shortcuts, defaults, and workflow primitives — while adding features of its own: a [PyMOL](https://www.pymol.org/) command-language scripting console, command-line integration, a residue torsion editor, Claude/MCP control, and more.
 
 **Why it exists:** Coot 0.9.x renders through XQuartz/GLX, which is broken on recent macOS versions (notably **Tahoe**). PyKeko requires no XQuartz, no CCP4 install, and no compiler — download the DMG and go.
 
