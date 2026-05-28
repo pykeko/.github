@@ -18,7 +18,7 @@
 
 PyKeko is a MacOS desktop application for the interactive macromolecular visualization and model building of structures determined by X-ray crystallography and cryo-EM.
 
-Under the hood it is [**Moorhen**](https://github.com/moorhen-coot/Moorhen), Coot's C++ engine (libcootapi, CCP4, Clipper, MMDB, GEMMI, RDKit) compiled to WebAssembly and wrapped in a TypeScript/React interface. PyKeko packages that into a self-contained, one-click `.app`/`.dmg` and tunes it to feel like **Coot 0.9.x** - with similar keyboard shortcuts, defaults, and workflow primitives — while adding features of its own: a [PyMOL](https://www.pymol.org/) command-language scripting console, command-line integration, a residue torsion editor, Claude-MCP control, and more.
+Under the hood it is [**Moorhen**](https://github.com/moorhen-coot/Moorhen), Coot's C++ engine (libcootapi, CCP4, Clipper, MMDB, GEMMI, RDKit) compiled to WebAssembly and wrapped in a TypeScript/React interface. PyKeko packages that into a self-contained, one-click `.app`/`.dmg` and tunes it to feel like **Coot 0.9.x** - with similar keyboard shortcuts, defaults, and workflow primitives — while adding features of its own: a [PyMOL](https://www.pymol.org/) command-language scripting console and a PyMOL-`-R`-style RPC server, command-line integration, a residue torsion editor, Claude-MCP control, and more.
 
 **Why it exists:** Coot 0.9.x renders through XQuartz/GLX, which does not work on recent MacOS versions (**Tahoe** done broke it). PyKeko requires no XQuartz, no CCP4 install, and no compiler — download the `.dmg` and go.
 
@@ -56,12 +56,12 @@ Full notes: [pk-v0.2 release](https://github.com/pykeko/Moorhen-PyKeko/releases/
 | Area | What you get |
 |---|---|
 | **Command line** | open files, fetch by PDB id, run `.pml` scripts, ligand-dictionary auto-attach, single-instance file handoff |
-| **PyMOL scripting** | a PyMOL command-language translator in *Interactive Scripting* — full selection algebra, representations, colours, measurements, and settings; `.pml` files run directly |
+| **PyMOL scripting** | run PyMOL commands *inside* the app — a command-language translator in *Interactive Scripting*: full selection algebra, representations, colours, measurements, and settings; `.pml` files run directly |
+| **PyMOL RPC server** | drive a running PyKeko *from outside* — a built-in localhost RPC control server (PyKeko's take on PyMOL's `-R`), scripted from Python via the bundled [`pykeko_remote.py`](https://github.com/pykeko/PyKeko/tree/main/remote) client, or from Claude via [PyKekoMCP](https://github.com/pykeko/PyKekoMCP) |
 | **Torsion editor** | backbone φ/ψ + sidechain χ sliders with a live Ramachandran plot |
 | **NCS ghosts** | overlay every NCS-related chain transformed onto a chosen master chain (`g`) |
 | **Cyclers** | step through validation outliers (`n`), difference-map peaks (`p`), ligands (`l`), and NCS mates (`o`) straight from the keyboard |
 | **Coot ergonomics** | Coot 0.9-style shortcuts and defaults, single-water-at-crosshairs (`w`), drag-atoms-with-refinement (`d`) |
-| **Automation** | drive it from Claude via [PyKekoMCP](https://github.com/pykeko/PyKekoMCP), or from Python via the `pykeko_remote.py` RPC client |
 
 Full keyboard-shortcut table and per-feature writeups: **[Moorhen-PyKeko/README-MH.md](https://github.com/pykeko/Moorhen-PyKeko/blob/main/README-MH.md)** · PyMOL command reference: **[docs/pymol-translator.md](https://github.com/pykeko/Moorhen-PyKeko/blob/main/docs/pymol-translator.md)**.
 
