@@ -6,7 +6,6 @@
 
 <p align="center">
   <em>A <a href="https://github.com/moorhen-coot/Moorhen">Moorhen</a> fork that quacks like a <a href="https://www2.mrc-lmb.cam.ac.uk/personal/pemsley/coot/">Coot</a>.</em><br/>
-  Native macOS desktop model building for crystallography &amp; cryo-EM — Coot's engine, no XQuartz.
 </p>
 
 <p align="center">
