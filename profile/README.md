@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/pykeko/Moorhen-PyKeko/releases/latest"><img alt="latest release" src="https://img.shields.io/github/v/release/pykeko/Moorhen-PyKeko?label=download&style=flat-square" /></a>
+  <a href="https://github.com/pykeko/PyKeko/releases/latest"><img alt="latest release" src="https://img.shields.io/github/v/release/pykeko/PyKeko?label=download&style=flat-square" /></a>
 </p>
 
 ---
@@ -28,7 +28,7 @@ Under the hood it is [**Moorhen**](https://github.com/moorhen-coot/Moorhen), Coo
 
 ## Install (macOS, Apple Silicon)
 
-**[⬇ Download the latest PyKeko.dmg](https://github.com/pykeko/Moorhen-PyKeko/releases/latest)** · **[Full install guide](https://github.com/pykeko/Moorhen-PyKeko/blob/main/docs/install-mac.md)**
+**[⬇ Download the latest PyKeko.dmg](https://github.com/pykeko/PyKeko/releases/latest)** · **[Full install guide](https://github.com/pykeko/Moorhen-PyKeko/blob/main/docs/install-mac.md)**
 
 1. Open the DMG and drag **PyKeko** to your Applications folder.
 2. First launch (the build is unsigned): right-click the app → **Open**, or run
@@ -38,14 +38,17 @@ Already on an earlier version? See **[upgrading](https://github.com/pykeko/Moorh
 
 Requires macOS 15.x (Tahoe) on Apple Silicon. Nothing else to install — Electron, the WebAssembly Coot engine, and the monomer libraries are all bundled. Fully offline except for "Fetch from PDB".
 
-## What's new in 0.2.0
+## Recent highlights
 
-- **Command-line integration** — `pykeko model.pdb data.mtz ligand.cif` opens files (the `.cif` attaching as a *dictionary*, not spawning a new molecule); `pykeko 7sj3` fetches by PDB id; `pykeko script.pml` runs a PyMOL-style script. A second launch of `pykeko` loads additional files into the running window (PyMOL `-R` style); `--new` opens a fresh one. Install the command from **Preferences → Install command-line launcher**.
+A rolling snapshot of the bigger additions across the 0.2.x line. **[Full per-release notes →](https://github.com/pykeko/PyKeko/releases)**
+
+- **Real desktop session save/restore** — `File → Save session…` writes a single `.pykeko` file (full scene: molecules, maps, per-rep colour rules, camera, vectors, 2D overlays, view settings); `Open session…` rehydrates it. Drag-drop onto the window also works.
+- **Portable Mol\* viewer export** — `File → Export portable viewer (.html)` produces a single self-contained HTML file (Mol\* under the hood) that reproduces your visible scene (representations, colour rules, ligand spheres, density …) for sharing or embedding. Optional density map embedding gives a "rolling cube" that tracks the recipient's camera, à la Coot.
+- **Shell-style scripting history** — `Calculate → Interactive scripting`'s modal now has per-mode `↑/↓` history, `Cmd/Ctrl+Enter` to submit, and persistence across reloads. Works for both PyMOL and JavaScript modes.
+- **Command-line integration** — `pykeko model.pdb data.mtz ligand.cif` opens files (the `.cif` attaching as a *dictionary*, not spawning a new molecule); `pykeko 7sj3` fetches by PDB id; `pykeko script.pml` runs a PyMOL-style script. A second launch of `pykeko` hands its files to the running window (PyMOL `-R` style); `--new` opens a fresh one. Install the command from **Preferences → Install command-line launcher**.
 - **Residue torsion editor** — right-click a residue → **Edit torsions**: rotate φ/ψ/χ angles with a **live Ramachandran plot** tracking the sliders.
 - **`pykeko_remote.py`** — a PyMOL-`-R`-style Python client that drives a running PyKeko from your own scripts (load / refine / screenshot / run PyMOL commands / …).
-- **Coot-style defaults** — black background, hydrogens shown when present, PyMOL as the default scripting language, and a one-time first-run hint pointing at the command-line launcher. (Updated keyboard shortcuts shown with `'m'`.)
-
-Full notes: [pk-v0.2 release](https://github.com/pykeko/Moorhen-PyKeko/releases/latest).
+- **Coot-style defaults** — black background, hydrogens shown when present, PyMOL as the default scripting language. Updated keyboard shortcuts shown with `'m'`.
 
 ## Capabilities
 
