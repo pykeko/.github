@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/pykeko/PyKeko/releases/latest"><img alt="latest release" src="https://img.shields.io/github/v/release/pykeko/PyKeko?label=download&style=flat-square" /></a>
+  <a href="https://github.com/pykeko/Moorhen-PyKeko/releases/latest"><img alt="latest release" src="https://img.shields.io/github/v/release/pykeko/Moorhen-PyKeko?label=download&style=flat-square" /></a>
 </p>
 
 ---
@@ -30,7 +30,7 @@ Coot 0.9.x renders through XQuartz/GLX, which does not work on recent macOS vers
 
 ## Install (macOS, Apple Silicon)
 
-**[⬇ Download the latest PyKeko.dmg](https://github.com/pykeko/PyKeko/releases/latest)** · **[Full install guide](https://github.com/pykeko/Moorhen-PyKeko/blob/main/docs/install-mac.md)**
+**[⬇ Download the latest PyKeko.dmg](https://github.com/pykeko/Moorhen-PyKeko/releases/latest)** · **[Full install guide](https://github.com/pykeko/Moorhen-PyKeko/blob/main/docs/install-mac.md)**
 
 1. Open the DMG and drag **PyKeko** to your Applications folder.
 2. First launch (the build is unsigned): right-click the app → **Open**, or run
