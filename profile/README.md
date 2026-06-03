@@ -20,13 +20,13 @@ PyKeko is a macOS desktop application for the interactive macromolecular visuali
 
 Under the hood it is [**Moorhen**](https://github.com/moorhen-coot/Moorhen), Coot's C++ engine (libcootapi, CCP4, Clipper, MMDB, GEMMI, RDKit) compiled to WebAssembly and wrapped in a TypeScript/React interface. PyKeko packages that into a self-contained, one-click `.app`/`.dmg` and tunes it to feel like **Coot 0.9.x** - with similar keyboard shortcuts, defaults, and workflow primitives — while adding features of its own: a [PyMOL](https://www.pymol.org/) command-language scripting console and a PyMOL-`-R`-style RPC server, command-line integration, a residue torsion editor, Claude-MCP control, and more.
 
+### Named for the **[pūkeko](https://en.wikipedia.org/wiki/Australasian_swamphen)** bird — the Australasian swamphen — a New Zealand cousin of coots and moorhens.
+
 > PyKeko is an independent project not affiliated with or endorsed by the Moorhen or Coot teams — but built on their extensive work (see [Credits](#credits)).
 
 ## _Why_ is PyKeko?
 
 Coot 0.9.x renders through XQuartz/GLX, which does not work on recent macOS versions (**Tahoe** done broke it). PyKeko requires no XQuartz, no CCP4 install, and no compiler — download the `.dmg` and go.
-
-**Named for the **[pūkeko](https://en.wikipedia.org/wiki/Australasian_swamphen)** bird — the Australasian swamphen — a New Zealand cousin of coots and moorhens.**
 
 ## Install (macOS, Apple Silicon)
 
