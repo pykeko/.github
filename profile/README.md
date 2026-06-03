@@ -26,7 +26,7 @@ Under the hood it is [**Moorhen**](https://github.com/moorhen-coot/Moorhen), Coo
 
 ## _Why_ is PyKeko?
 
-Coot 0.9.x renders through XQuartz/GLX, which does not work on recent macOS versions (**Tahoe** done broke it). PyKeko requires no XQuartz, no CCP4 install, and no compiler — download the `.dmg` and go.
+Coot 0.9.x renders through XQuartz/GLX, which does not work on recent macOS versions (**Tahoe** done broke it). PyKeko requires no XQuartz, no CCP4 install, and no compiler — download the `.dmg` and go. A lot of crystallographers miss the the feel of pre-v1.0 Coot...
 
 ## Install (macOS, Apple Silicon)
 
