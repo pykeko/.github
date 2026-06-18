@@ -26,7 +26,7 @@ Under the hood it is [**Moorhen**](https://github.com/moorhen-coot/Moorhen), Coo
 
 ## _Why_ is PyKeko?
 
-Coot 0.9.x renders through XQuartz/GLX, which does not work on recent macOS versions (**Tahoe** done broke it). PyKeko requires no XQuartz, no CCP4 install, and no compiler — download the `.dmg` and go. A lot of crystallographers miss the the feel of pre-v1.0 Coot...
+Coot 0.9.x renders through XQuartz/GLX, which does not work on recent macOS versions (**Tahoe** done broke it). PyKeko requires no XQuartz and no compiler — download the `.dmg` and go. **CCP4 is optional**: the core build / refine / save workflow is bundled, but if you do have CCP4 installed PyKeko transparently picks up its `acedrg`, `findligand`, and `refmac5` binaries for a handful of advanced features (SMILES → CIF dict fallback, ligand-site search, in-app REFMAC5 refinement of covalent links). A lot of crystallographers miss the the feel of pre-v1.0 Coot...
 
 ## Install (macOS, Apple Silicon)
 
@@ -38,14 +38,24 @@ Coot 0.9.x renders through XQuartz/GLX, which does not work on recent macOS vers
 
 Already on an earlier version? See **[upgrading](https://github.com/pykeko/Moorhen-PyKeko/blob/main/docs/install-mac.md#updating-to-a-newer-version)** — your settings and the `pykeko` command-line tool carry over.
 
-Requires macOS 15.x (Tahoe) on Apple Silicon. Nothing else to install — Electron, the WebAssembly Coot engine, and the monomer libraries are all bundled. Fully offline except for "Fetch from PDB".
+Requires macOS 15.x (Tahoe) on Apple Silicon. The core app — Electron, the WebAssembly Coot engine, the monomer libraries — is fully bundled and works offline (except "Fetch from PDB").
+
+**CCP4 is optional.** When CCP4 is installed (`/Applications/ccp4-9/` or on `PATH`) PyKeko transparently shells out to:
+
+| CCP4 binary | What unlocks |
+|---|---|
+| `acedrg` | SMILES → CIF dictionary fallback when the in-app RDKit/WASM path can't handle a structure (`Ligand → New Ligand from SMILES…`) |
+| `findligand` | `Ligand → Find ligand sites…` / `Find ligand here…` — Fo-Fc blob → ligand-fit |
+| `refmac5` | The "Refine with REFMAC5…" button on the covalent-link panel (real-space refinement of declared covalent links against your MTZ) |
+
+Without CCP4 those specific menu items become no-ops with a "CCP4 not installed" message; everything else in PyKeko works.
 
 ## Recent highlights
 
 A rolling snapshot of the bigger additions across the 0.2.x line. **[Full per-release notes →](https://github.com/pykeko/PyKeko/releases)**
 
 - **In-app log console + scripting REPL** — a thin always-on strip at the bottom of the viewport tails PyKeko's log so you can see what the app is doing without dropping to Terminal. **⌘\`** expands it into a scrollable panel with filter + colour-coded levels, plus a REPL with a **JS / PyMOL** mode dropdown. The `!` prefix runs the input through your login shell with `~/.zshrc` sourced (so conda init, CCP4 setup, custom PATH all work); `!cd`, `!pushd`/`!popd`, `!export`, and `!clear` mutate process-wide state so subsequent saves and spawn helpers (refmac5 / findligand / acedrg) honour them.
-- **Covalent-ligand workflow + in-app REFMAC5** — `Ligand → Make covalent…`: pick a Cys SG and a ligand Cβ; PyKeko auto-detects the warhead family (acrylamide / α,β-ynamide / chloroacetamide / epoxide / maleimide / Mike-acceptor-vinyl), declares the link, updates the displayed bond orders to match the post-reaction state, and (one click later) refines the model against your MTZ via a bundled REFMAC5 spawn. `Ligand → Find ligand sites…` likewise drives CCP4's `findligand` to search Fo-Fc for ligand-shaped blobs.
+- **Covalent-ligand workflow + in-app REFMAC5** — `Ligand → Make covalent…`: pick a Cys SG and a ligand Cβ; PyKeko auto-detects the warhead family (acrylamide / α,β-ynamide / chloroacetamide / epoxide / maleimide / Mike-acceptor-vinyl), declares the link, and updates the displayed bond orders to match the post-reaction state. With CCP4 installed, one more click refines the model against your MTZ via the system's `refmac5`. `Ligand → Find ligand sites…` likewise drives CCP4's `findligand` to search Fo-Fc for ligand-shaped blobs.
 - **Real desktop session save/restore** — `File → Save session…` writes a single `.pykeko` file (full scene: molecules, maps, per-rep colour rules, camera, vectors, 2D overlays, view settings); `Open session…` rehydrates it. Drag-drop onto the window also works.
 - **Portable Mol\* viewer export** — `File → Export portable viewer (.html)` produces a single self-contained HTML file (Mol\* under the hood) that reproduces your visible scene (representations, colour rules, ligand spheres, density …) for sharing or embedding. Optional density map embedding gives a "rolling cube" that tracks the recipient's camera, à la Coot.
 - **Shell-style scripting history** — `Calculate → Interactive scripting`'s modal now has per-mode `↑/↓` history, `Cmd/Ctrl+Enter` to submit, and persistence across reloads. Works for both PyMOL and JavaScript modes.
