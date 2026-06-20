@@ -47,6 +47,7 @@ Requires macOS 15.x (Tahoe) on Apple Silicon. The core app — Electron, the Web
 | `acedrg` | SMILES → CIF dictionary fallback when the in-app RDKit/WASM path can't handle a structure (`Ligand → New Ligand from SMILES…`) |
 | `findligand` | `Ligand → Find ligand sites…` / `Find ligand here…` — Fo-Fc blob → ligand-fit |
 | `refmac5` | The "Refine with REFMAC5…" button on the covalent-link panel (real-space refinement of declared covalent links against your MTZ) |
+| `dimple` | `Ligand → Refine with DIMPLE…` — the auto-pipeline: rigid-body / MR + restrained refinement + optional ligand fitting, end-to-end. The "I have a co-crystal MTZ → refined complex" macro |
 
 Without CCP4 those specific menu items become no-ops with a "CCP4 not installed" message; everything else in PyKeko works.
 
@@ -54,6 +55,8 @@ Without CCP4 those specific menu items become no-ops with a "CCP4 not installed"
 
 A rolling snapshot of the bigger additions across the 0.2.x line. **[Full per-release notes →](https://github.com/pykeko/PyKeko/releases)**
 
+- **PyMOL-style trackball rotation** — Moorhen's Eulerian rotation (horizontal=yaw, vertical=pitch, no roll) replaced as default with a line-for-line port of PyMOL's Shoemake virtual trackball using the same constants (`mouse_scale=1.3`, `mouse_limit=100`, radius `0.45×min(W,H)`). Feels like spinning a ball with your fingers, with natural edge-roll. Preferences → Mouse sensitivity… toggle to switch back to the Coot/Moorhen gimbal feel if you want it.
+- **DIMPLE auto-pipeline** — new `Ligand → Refine with DIMPLE…` wraps CCP4's `dimple` (rigid-body / MR + restrained refinement + optional ligand fitting end-to-end). Load apo model, optionally a ligand from SMILES, click → pick MTZ → dimple runs in the background (typical 2–10 min, progress in the in-app log console) → refined model loads back automatically.
 - **In-app log console + scripting REPL** — a thin always-on strip at the bottom of the viewport tails PyKeko's log so you can see what the app is doing without dropping to Terminal. **⌘\`** expands it into a scrollable panel with filter + colour-coded levels, plus a REPL with a **JS / PyMOL** mode dropdown. The `!` prefix runs the input through your login shell with `~/.zshrc` sourced (so conda init, CCP4 setup, custom PATH all work); `!cd`, `!pushd`/`!popd`, `!export`, and `!clear` mutate process-wide state so subsequent saves and spawn helpers (refmac5 / findligand / acedrg) honour them.
 - **Covalent-ligand workflow + in-app REFMAC5** — `Ligand → Make covalent…`: pick a Cys SG and a ligand Cβ; PyKeko auto-detects the warhead family (acrylamide / α,β-ynamide / chloroacetamide / epoxide / maleimide / Mike-acceptor-vinyl), declares the link, and updates the displayed bond orders to match the post-reaction state. With CCP4 installed, one more click refines the model against your MTZ via the system's `refmac5`. `Ligand → Find ligand sites…` likewise drives CCP4's `findligand` to search Fo-Fc for ligand-shaped blobs.
 - **Real desktop session save/restore** — `File → Save session…` writes a single `.pykeko` file (full scene: molecules, maps, per-rep colour rules, camera, vectors, 2D overlays, view settings); `Open session…` rehydrates it. Drag-drop onto the window also works.
